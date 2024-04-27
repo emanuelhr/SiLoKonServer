@@ -1,0 +1,48 @@
+﻿@inherits LayoutComponentBase
+
+
+<PageTitle>SiLoKonServer</PageTitle>
+
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+
+    <MudLayout>
+    <MudAppBar Elevation="1" Style="background-color:darkgreen">
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@ToggleDrawer" />
+
+        <MudSpacer></MudSpacer>
+       
+
+
+        <MudSpacer></MudSpacer>
+        <MudIconButton Icon="@Icons.Material.Filled.Phone" Color="Color.Inherit" Edge="Edge.End" Href="tel:+385976854356" />
+        <MudIconButton Icon="@Icons.Material.Filled.Mail" Color="Color.Inherit" Edge="Edge.End" Href="mailto:david@silokon.com" />
+    </MudAppBar>
+    <MudDrawer @bind-Open="@open" Elevation="1" Style="background-color:darkgreen; color:white">
+        <MudDrawerHeader>
+            <MudText Typo="Typo.h6">Izbornik</MudText>
+        </MudDrawerHeader>
+        <NavMenu/>
+    </MudDrawer>
+        <MudMainContent>
+            @Body
+        </MudMainContent>
+        
+        <Footer />
+        
+    </MudLayout>
+
+
+
+
+
+@code {
+    bool open = false;
+
+    void ToggleDrawer()
+    {
+        open = !open;
+    }
+}

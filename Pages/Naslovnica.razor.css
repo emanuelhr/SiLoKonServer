@@ -1,0 +1,42 @@
+﻿.container {
+    position: relative;
+    text-align: center;
+    color: green;
+    min-height: 100vh;
+    max-width: 100%;
+    width:100%;
+    height:100%;
+    background-image: url("Images/i-want-picture-0.png");
+    background-size:cover;
+    background-position:center;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-size-adjust:auto;
+    color:white;
+    font-size:xx-large;
+    
+}
+
+.card-slika {
+    border-bottom-width: 10px !important;
+    border-color: orange !important;
+}
+
+
+
+::deep .mud-card-media {
+    border-block-end:solid;
+    border-block-end-width:10px;    
+    border-color: orange ;
+    
+}
+
+.razmak
+{
+height:50px;
+}

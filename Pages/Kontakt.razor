@@ -1,0 +1,84 @@
+﻿@page "/kontakt"
+@inject ISnackbar Snackbar
+
+<body style="min-height:fit-content">
+    <MudContainer Class="align-content-md-center align-text-bottom" Style="text-align:center; padding-top:20px" >
+       
+            <MudText Typo="Typo.h4">Želite znati više?</MudText>
+            <MudText>Slobodno nas kontaktirajte ako imate kakvih pitanja</MudText>             
+    </MudContainer>
+
+    <br />
+
+    <MudGrid Justify="Justify.Center"  >
+        <MudItem xs="9" sm="3" md="3" lg="3">
+            <MudTextField AdornmentColor="Color.Inherit" Placeholder="Ime i prezime" @bind-Value="ImePrezime" Label="Ime i prezime" Variant="Variant.Outlined"></MudTextField>
+        </MudItem>
+
+        <MudItem xs="9" sm="3" md="3" lg="3">
+            <MudTextField Placeholder="Napišite Vaš email" @bind-Value="Email" Label="Email" Variant="Variant.Outlined"></MudTextField>
+        </MudItem>
+        <MudItem xs="9" sm="3" md="3" lg="3">
+            <MudTextField Placeholder="Napišite broj telefona" @bind-Value="BrojTelefona" Label="Broj telefona" Variant="Variant.Outlined"></MudTextField>
+        </MudItem>
+        <MudItem xs="9" sm="9" md="9" lg="9">
+            <MudTextField Placeholder="Napišite Vašu poruku" @bind-Value="Opis" Label="Broj telefona" Variant="Variant.Outlined"></MudTextField>
+        </MudItem>
+        <MudItem xs="9" sm="9" md="9" lg="9">
+           <Kontakt_DragDrop/>
+        </MudItem>
+        
+
+        <MudItem xs="9" sm="9" md="9" lg="9">
+            <MudButton Variant="Variant.Filled" FullWidth>Pošalji poruku</MudButton>
+        </MudItem>
+    </MudGrid>
+
+    <br />
+<br />
+
+</body>
+@code{
+    public string ImePrezime { get; set; }
+     public string Email { get; set; }
+    public string BrojTelefona { get; set; }
+    public string Opis { get; set; }
+
+}
+
+        @code {
+#nullable enable
+    private const string DefaultDragClass = "relative rounded-lg border-2 border-dashed pa-4 mt-4 mud-width-full mud-height-full z-10";
+    private string _dragClass = DefaultDragClass;
+    private readonly List<string> _fileNames = new();
+
+    private async Task Clear()
+    {
+        _fileNames.Clear();
+        ClearDragClass();
+        await Task.Delay(100);
+    }
+
+    private void OnInputFileChanged(InputFileChangeEventArgs e)
+    {
+        ClearDragClass();
+        var files = e.GetMultipleFiles();
+        foreach (var file in files)
+        {
+            _fileNames.Add(file.Name);
+        }
+    }
+
+    private void Upload()
+    {
+        // Upload the files here
+        Snackbar.Configuration.PositionClass = Defaults.Classes.Position.TopCenter;
+        Snackbar.Add("TODO: Upload your files!");
+    }
+
+    private void SetDragClass()
+        => _dragClass = $"{DefaultDragClass} mud-border-primary";
+
+    private void ClearDragClass()
+        => _dragClass = DefaultDragClass;
+}
