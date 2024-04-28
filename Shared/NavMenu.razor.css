@@ -1,3 +1,39 @@
+/*prelazak miša preko navitema*/
+::deep .mud-nav-link-text:hover{
+    color:yellow;
+}
+
+/*selektirani nav item*/
+::deep .mud-nav-link.active {
+    color: yellow !important;    
+    
+}
+::deep .mud-nav-link:hover{
+    color: yellow !important;
+}
+
+/*ikona */
+::deep .mud-navmenu.mud-navmenu-default .mud-nav-link-expand-icon.mud-transform{
+    color:yellow;
+}
+
+::deep .mud-nav-item:hover {
+    color: yellow !important;
+    
+    
+}
+::deep .mud-nav-item.mud-ripple:hover {
+    color: yellow !important;
+}
+::deep .mud-nav-item.mud-ripple::after {
+    color: yellow !important;
+}
+
+::deep .mud-nav-item mud-ripple {
+
+}
+
+
 .navbar-toggler {
     background-color: rgba(255, 255, 255, 0.1);
 }
