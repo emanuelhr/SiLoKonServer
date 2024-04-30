@@ -14,13 +14,16 @@
 
 /*ikona */
 ::deep .mud-navmenu.mud-navmenu-default .mud-nav-link-expand-icon.mud-transform{
-    color:yellow;
+    color:white;
+    fill:white;
+}
+::deep .mud-nav-link .mud-nav-link-expand-icon 
+{
+    color:white;
 }
 
 ::deep .mud-nav-item:hover {
     color: yellow !important;
-    
-    
 }
 ::deep .mud-nav-item.mud-ripple:hover {
     color: yellow !important;
